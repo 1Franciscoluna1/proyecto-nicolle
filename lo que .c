@@ -1,90 +1,266 @@
-//  //Autores:  Omar Alejandro Barba Limón y Nicolle Lizbeth Castillo Gutierrez 
-//  //Junio 4,2021
-//  // Proyecto 
-//  #include <stdio.h>
-//  //#include <conio.h>
+//Autores:  Omar Alejandro Barba Limón y Nicolle Lizbeth Castillo Gutierrez 
+ //Junio 4,2021
+ // Proyecto 
+#include <stdio.h>
+// #include <conio.h>
+#include <stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
  
-//  struct dato {
-// char nombre[30], tel[10];
-// int edad;
-// float codigo; 	
-// };
+ struct dato {
+char nombre[30], tel[10];
+int edad,codigo;
+  	
+}empleado[2];
 
-//  int ingresar(){
-//  	int mesas;
-//  	printf("Para iniciar el programa ingrese la cantidad de mesas del dia: ");
-//  	scanf("%i",&mesas);
-//  	return mesas;	
-//  }
- 
-//  int inicio(){
-// 	int var;
-//  	printf("Ingrese '1' si quiere ingresar al menu\n ");
-//  	printf("Ingrese '2' si quiere ingresar a la selecion de mesas:  ");
-//  	printf("Ingrese '3' si quiere Sacar cuenta de una mesa");
-//  	scanf("%i",&var);
- 
-//  	return var;
- 	
-// }
 
-//  int usuario(){
- 	
- 	
- 	
-//  }
 
+//mesas funcion
+
+ int ingresar(){
+ 	int mesas;
+ 	printf("\t\tPara iniciar el programa ingrese la cantidad de mesas del dia: ");
+ 	scanf("%i",&mesas);
+ 	return mesas;	
+ }
+
+void menu(){
+ 	printf("Ingresando a seleccion de menu...\n");
+	printf("\n\t\n\tMenu\n\t\n\t");
+	printf("\n\tHamburguesas: ");
+	printf("\n\t\tEl combo incluye papas  y refresco ");
+	printf("\n\t\tHamburguesa sencilla 79 mxn");
+	printf("\n\t\tHamburguesa doble 109 mxn");
+	printf("\n\t\tCombo sencillo 119 mxn");
+	printf("\n\t\tCombo doble 149 mxn");
+	printf("\n\tBebidas:");
+	printf("\n\t\tMateada 45mxn");
+	printf("\n\t\tCerveza 25mxn");
+	printf("\n\t\tRefresco 25mxn");
+	printf("\n\t\tPapas 50mxn");
+}
  
-//  void llenar_mesa(int x, int a[30]){
-//  	int m,i;
+//impresion del empleado
+ void imprecion_usuario(int mesero){
+for(int i=0;i < mesero;i++){
+  printf("\n\n\t%s",empleado[i].nombre);
+  printf("\n\t%s",empleado[i].tel);
+  printf("\n\t%i",empleado[i].edad);
+  printf("\n\t%i\n\t",empleado[i].codigo);
+}
+} 
+
+//llenado de mesas
+ void llenar_mesas(int x, int a[30]){
+ 	int i;
  	
-//  printf("¿Que numero de mesa es la que usted quiere llenar?");	
-// 	scanf("%i",&m);
-// 	for(i=0;i<x;i++){
+	for(i=0;i<x;i++){
+	printf("\n\tingrese los datos de la mesa %i:  ",i+1);
+    scanf("%i",&a[i]);
+	}
+	}
+ 
+ void imprimir_mesas(int x, int a[30]){
+ 	int i;
+ 	
+	for(i=0;i<x;i++){
+	printf("\n\tLos datos en la mesa %i son: %i\n\t",i+1,a[i]);
     
-// 		printf("ingrese datos: ");
-//     scanf("%i",&a[m-1]);
-// 	}
+	}
+ }
+  void total(int th,int tb){
+	int s;
+	 	s=th+tb;
+	printf("\n\tEl resultado total de la cuenta es de: %i\n\t",s);	
+	 }
+	 
+ void pedido(){
+	int cant=0,s=0,d=0,c1=0,c2=0,rs=0,rd=0,rc=0,rcc=0,j=0,h,ii=0,th=0,tb=0; 
+	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp;
+ 	//menu();
+ 	//hamburguesa
+ 	printf("\n\tIngrese la cantidad de articulos de hamburguesas: ");
+ 	scanf("%i",&h);
+ 		
+		 do{
+ 	printf("\n\tSeleccione 1 si quiere agregar una hamburguesa sencilla \n\tSeleccione 2 si quiere agregar una habmurguesa doble");
+ 	printf("\n\tSeleccione 3 si quiere agregar un combo sencillo \n\tSeleccione 4 si quiere agregar un combo doble");
+	scanf("%i",&cant);
 	
+		
+ 	if(cant==1){
+		 printf("Indique la cantidad de hamburgesas sencillas que se selecionaron: ");
+ 		scanf("%i",&s);
+ 		rs=s*79;
+ 		ii=ii+s;
+		 }
+	if(cant==2){
+		 printf("Indique la cantidad de hamburgesas dobles que se selecionaron: ");
+ 		scanf("%i",&d);
+ 		rd=d*109;
+ 			ii=ii+d;
+		 }
+	if(cant==3){
+		 printf("Indique la cantidad de combos sencillos que se selecionaron: ");
+ 		scanf("%i",&c1);
+ 		rc=c1*119;
+ 		ii=ii+c1;
+		 }	 
+	if(cant==4){
+		 printf("Indique la cantidad de combos dobles que se selecionaron: ");
+ 		scanf("%i",&c2);
+ 		rcc=c2*149;
+ 		ii=ii+c2;
+		 }
+		 system("cls");	
+	}
+	while(ii!=h);
+	//bebidas
+	printf("\n\tIngrese la cantidad de articulos de bebidas y extras: ");
+ 	scanf("%i",&b);
+ 	do{
+ 	printf("\n\tIseleccione 1 si quiere agregar un refresco \n\t seleccione 2 si quiere agregar una cerveza");
+ 	printf("\n\tIseleccione 3 si quiere agregar una malteada\n\t seleccione 4 si quiere agregar papas");
+	scanf("%i",&beb);
 	
-// 	}
- 
-//  void menu(){
-//  	printf("Ingresando a seleccion de menu...\n");
-// printf("\n\t\n\tMenu\n\t\n\t");
-// 	printf("\n\tEl combo incluye papas chicas y refresco chico");
-// 	printf("\n\tHamburguesa basica\n\tburger 77mxn\t\t\tcombo 139mxn");
-// 	printf("\n\tHamburguesa doble\n\tburger 100mxn\t\t\tcombo 159mxn");
-// 	printf("\n\tHamburguesa tocino\n\tburger 77mxn\t\t\tcombo 139mxn");
-// 	printf("\n\tHamburguesa tocino doble\n\tburger 100mxn\t\t\tcombo  159mxn");
-// 	printf("\n\tHamburguesa de pollo\n\tburger 92mxn\t\t\tcombo 155mxn");
-// 	printf("\n\tHamburguesa jalapeño\n\tburger 92mxn\t\t\tcombo 155mxn");
-// } 
- 	
- 	
- 	
-//  int main(){
-//  	int me,opc,x,i,a[30] = {0};
-// 	me=ingresar();
-// 	opc=inicio();
- 
-//  	switch (opc){
-// 	 case 1: {
-// 	 	menu();
-// 		break;
-// 	 }
-// 	 case 2:{//seleccion de mesas 
+		
+ 	if(beb==1){
+		 printf("\n\tIndique la cantidad de refrescos que se consumieron: ");
+ 		scanf("%i",&r);
+ 		tr=r*45;
+ 		zz=zz+r;
+		 }
+	if(beb==2){
+		 printf("\n\tIndique la cantidad de cervezas que se consumieron: ");
+ 		scanf("%i",&c);
+ 		tc=c*25;
+ 		zz=zz+c;
+		 }
+	if(beb==3){
+		 printf("\n\tIndique la cantidad de malteadas que se consumieron: ");
+ 		scanf("%i",&m);
+ 		tm=m*25;
+ 		zz=zz+m;
+		 }
 	
-// 	 if(me>0){
-// 	 llenar_mesa(me,a);	
-// 	 }
-	 	
-// 		break;
-// 	 }
-// 	 case 3:{
-// 		break;
-// 	 }
-// 	 }
-// 	return 0;
-// 	//getch();
-//  }
+	if(beb==4){
+		 printf("\n\tIndique la cantidad de papas que se consumieron: ");
+ 		scanf("%i",&p);
+ 		tp=p*30;
+ 		zz=zz+p;} 
+	system("cls");
+		 
+	 }
+	while(zz!=b);
+	
+	{
+	
+	printf("\n\t\tLos valores ingresado de haburguesas son: ");
+	printf("\n\tLa cantidad de hamburguesa sencillas son %i y el total es: %i",s,rs); 
+	printf("\n\tLa cantidad de hamburguesa dobles son %i y el total es: %i",d,rd); 
+	printf("\n\tLa cantidad de combos sencillos son %i y el total es: %i",c1,rc); 
+	printf("\n\tLa cantidad de combos dobles son %i y el total es: %i\n\n\t",c2,rcc); 
+}
+
+	printf("\n\t\tLos valores de las bebidas son: ");	
+	printf("\n\tLa cantidad de refrescos son %i y el total es: %i",r,tr);
+	printf("\n\tLa cantidad de cervezas son %i y el total es: %i",c,tc);
+	printf("\n\tLa cantidad de malteadas son %i y el total es: %i\n\n\t",r,tr);
+	printf("\n\tLa cantidad de papas extras son %i y el total es: %i\n\n\t",r,tr);
+
+	th=rs+rd+rc+rcc;
+	tb=tr+tc+tm+tp;	
+	total(th,tb);
+		
+	  }
+	  
+
+
+int llenar_meseros(){
+int meseros;
+ printf("\t\tPara poder continuar ingrese la cantidad de meseros.");
+scanf("%i", &meseros);
+ 	  for (int i=0;i < meseros;i++){
+	printf("\n\tEscribe el nombre de la persona que esta atendiendo: ");
+	fflush (stdin);
+  scanf(" %[^\n]s",empleado[i].nombre);
+	printf("\n\tEscribe tu numero de empleado:");
+	scanf(" %i",& empleado[i].codigo);
+	printf("\n\tEscribe tu edad: ");
+	scanf(" %i",& empleado[i].edad);
+	printf("\n\tEscribe telefono: ");
+	scanf(" %[^\n]s",empleado[i].tel);
+}
+
+  return meseros;
+}
+		
+  int ingreos_menu(){
+    int var;
+printf("\n\tIngrese '1' si quiere ingresar al menu ");
+ 	printf("\n\tIngrese '2' si quiere llenar las mesas con la cantidad\n\tde personas que va a tener disponible durante el turno:  ");
+ 	printf("\n\tIngrese '3' si quiere sacar cuenta de una mesa");
+ 	printf("\n\tIngrese '4' si quiere salir");
+ 	scanf("%i",&var);
+   return var;
+  }
+
+
+ int main(){
+ 	int me,var,m,z,opc,x,i,a[30] = {0};
+ 	int totalmeseros;
+  
+
+  totalmeseros = llenar_meseros();
+ //printf("\n\n\n\t\t%i",totalmeseros);
+
+	imprecion_usuario(totalmeseros);
+	system("pause");
+	system("cls");
+	me=ingresar();
+	system("cls");
+	do
+	{
+	var=ingreos_menu();
+ 	
+	system("cls");
+ 	switch (var)
+	 {
+	 case 1: {//menu
+	 
+		menu();
+	 	system("pause");
+		system("cls");
+		break;
+	 }
+	 case 2:{//seleccion de mesas 
+	 
+	 llenar_mesas(me,a);
+   imprimir_mesas(me,a);	
+	 system("pause");
+	 system("cls");
+		break;
+	 }
+	 case 3:{//llenar pedidos 
+	 	menu();
+	 	 system("pause");
+		 system("cls");
+	 	pedido();
+		break;
+	 }
+	 case 4:
+	 	{
+	 		break;
+		 }
+		 
+	 }
+	 
+	 }
+	 while (var!=4);
+  imprimir_mesas(me,a); 
+	imprecion_usuario(totalmeseros);
+	 return 0;
+	//getch();
+	 }
+	 
