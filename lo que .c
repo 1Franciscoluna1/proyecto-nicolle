@@ -77,7 +77,7 @@ for(int i=0;i < mesero;i++){
 	 
  int pedido(int vtas){
 	int cant=0,s=0,d=0,c1=0,c2=0,rs=0,rd=0,rc=0,rcc=0,j=0,h,ii=0,th=0,tb=0; 
-	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp,total_cuenta,a;
+	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp,total_cuenta,a=0;
  	//menu();
  	//hamburguesa
  	printf("\n\tIngrese la cantidad de articulos de hamburguesas: ");
@@ -93,7 +93,7 @@ for(int i=0;i < mesero;i++){
      
 		 printf("Indique la cantidad de hamburgesas sencillas que se selecionaron: ");
  		scanf("%i",&s);
-     if(s<cant){
+     if(s<h){
  		rs=s*79;
  		ii=ii+s;
 		 }
@@ -102,9 +102,8 @@ for(int i=0;i < mesero;i++){
    }
 	else if(cant==2){
 		 printf("Indique la cantidad de hamburgesas dobles que se selecionaron: ");
-     
  		scanf("%i",&d);
-    if(d<=cant){
+    if(d<=h){
  		rd=d*109;
  			ii=ii+d;}
        else printf("Error en la seleccion");
@@ -112,7 +111,7 @@ for(int i=0;i < mesero;i++){
 	else if(cant==3){
 		 printf("Indique la cantidad de combos sencillos que se selecionaron: ");
  		scanf("%i",&c1);
-     if(c1<=cant){
+     if(c1<=h){
  		rc=c1*119;
  		ii=ii+c1;}
      else printf("Error en la seleccion");
@@ -120,7 +119,7 @@ for(int i=0;i < mesero;i++){
 	else if(cant==4){
 		 printf("Indique la cantidad de combos dobles que se selecionaron: ");
  		scanf("%i",&c2);
-     if(c2<=cant){
+     if(c2<=h){
  		rcc=c2*149;
  		ii=ii+c2;}
       else printf("Error en la seleccion");
@@ -143,7 +142,7 @@ for(int i=0;i < mesero;i++){
  	if(beb==1){
 		 printf("\n\tIndique la cantidad de refrescos que se consumieron: ");
  		scanf("%i",&r);
-     if(r<=beb){
+     if(r<=b){
  		tr=r*45;
  		zz=zz+r;}
      else 
@@ -152,7 +151,7 @@ for(int i=0;i < mesero;i++){
 	else if(beb==2){
 		 printf("\n\tIndique la cantidad de cervezas que se consumieron: ");
  		scanf("%i",&c);
-     if(c<=beb){
+     if(c<=b){
  		tc=c*25;
  		zz=zz+c;}
      else printf ("Error en la seleccion");
@@ -160,7 +159,7 @@ for(int i=0;i < mesero;i++){
 	else if(beb==3){
 		 printf("\n\tIndique la cantidad de malteadas que se consumieron: ");
  		scanf("%i",&m);
-     if(m<=beb){
+     if(m<=b){
  		tm=m*25;
  		zz=zz+m;}
      else
@@ -170,7 +169,7 @@ for(int i=0;i < mesero;i++){
 	else if(beb==4){
 		 printf("\n\tIndique la cantidad de papas que se consumieron: ");
  		scanf("%i",&p);
-     if(p<=beb){
+     if(p<=b){
  		tp=p*30;
  		zz=zz+p;} 
      	else 
