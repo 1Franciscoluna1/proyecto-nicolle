@@ -1,11 +1,10 @@
 //Autores:  Omar Alejandro Barba Limón y Nicolle Lizbeth Castillo Gutierrez 
  //Junio 4,2021
  // Proyecto 
+ 
 #include <stdio.h>
 // #include <conio.h>
 #include <stdlib.h> 
-#include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
  
  struct dato {
@@ -78,7 +77,7 @@ for(int i=0;i < mesero;i++){
 	 
  int pedido(int vtas){
 	int cant=0,s=0,d=0,c1=0,c2=0,rs=0,rd=0,rc=0,rcc=0,j=0,h,ii=0,th=0,tb=0; 
-	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp,total_cuenta;
+	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp,total_cuenta,a;
  	//menu();
  	//hamburguesa
  	printf("\n\tIngrese la cantidad de articulos de hamburguesas: ");
@@ -91,29 +90,44 @@ for(int i=0;i < mesero;i++){
 	
 		
  	if(cant==1){
+     
 		 printf("Indique la cantidad de hamburgesas sencillas que se selecionaron: ");
  		scanf("%i",&s);
+     if(s<cant){
  		rs=s*79;
  		ii=ii+s;
 		 }
-	if(cant==2){
+     else 
+    printf("Error en la seleccion: ");
+   }
+	else if(cant==2){
 		 printf("Indique la cantidad de hamburgesas dobles que se selecionaron: ");
+     
  		scanf("%i",&d);
+    if(d<=cant){
  		rd=d*109;
- 			ii=ii+d;
+ 			ii=ii+d;}
+       else printf("Error en la seleccion");
 		 }
-	if(cant==3){
+	else if(cant==3){
 		 printf("Indique la cantidad de combos sencillos que se selecionaron: ");
  		scanf("%i",&c1);
+     if(c1<=cant){
  		rc=c1*119;
- 		ii=ii+c1;
-		 }	 
-	if(cant==4){
+ 		ii=ii+c1;}
+     else printf("Error en la seleccion");
+		 }
+	else if(cant==4){
 		 printf("Indique la cantidad de combos dobles que se selecionaron: ");
  		scanf("%i",&c2);
+     if(c2<=cant){
  		rcc=c2*149;
- 		ii=ii+c2;
+ 		ii=ii+c2;}
+      else printf("Error en la seleccion");
 		 }
+     else {
+    printf("\n\tError en la seleccion");
+  }	 
 		 system("cls");	
 	}
 	while(ii!=h);
@@ -122,36 +136,48 @@ for(int i=0;i < mesero;i++){
  	scanf("%i",&b);
  	do{
  	printf("\n\tIseleccione 1 si quiere agregar un refresco \n\t seleccione 2 si quiere agregar una cerveza");
- 	printf("\n\tIseleccione 3 si quiere agregar una malteada\n\t seleccione 4 si quiere agregar papas");
+ 	printf("\n\tIseleccione 3 si quiere agregar una malteada\n\t seleccione 4 si quiere agregar papas: ");
 	scanf("%i",&beb);
 	
 		
  	if(beb==1){
 		 printf("\n\tIndique la cantidad de refrescos que se consumieron: ");
  		scanf("%i",&r);
+     if(r<=beb){
  		tr=r*45;
- 		zz=zz+r;
+ 		zz=zz+r;}
+     else 
+       printf ("Error en la seleccion");
 		 }
-	if(beb==2){
+	else if(beb==2){
 		 printf("\n\tIndique la cantidad de cervezas que se consumieron: ");
  		scanf("%i",&c);
+     if(c<=beb){
  		tc=c*25;
- 		zz=zz+c;
+ 		zz=zz+c;}
+     else printf ("Error en la seleccion");
 		 }
-	if(beb==3){
+	else if(beb==3){
 		 printf("\n\tIndique la cantidad de malteadas que se consumieron: ");
  		scanf("%i",&m);
+     if(m<=beb){
  		tm=m*25;
- 		zz=zz+m;
+ 		zz=zz+m;}
+     else
+        printf ("Error en la seleccion");
 		 }
 	
-	if(beb==4){
+	else if(beb==4){
 		 printf("\n\tIndique la cantidad de papas que se consumieron: ");
  		scanf("%i",&p);
+     if(p<=beb){
  		tp=p*30;
  		zz=zz+p;} 
+     	else 
+     printf ("Error en la seleccion");
+  }	 
 	system("cls");
-		 
+
 	 }
 	while(zz!=b);
 	
@@ -173,8 +199,9 @@ for(int i=0;i < mesero;i++){
 	th=rs+rd+rc+rcc;
 	tb=tr+tc+tm+tp;	
 
-  //total_cuenta = vtas;
-	 total_cuenta = (vtas + total(th,tb));
+  //total_cuenta = vtas+total_cuenta;
+   a = total(th,tb);
+	 total_cuenta = (vtas + a);   
 		return total_cuenta;
 	  }
 	  
@@ -204,13 +231,13 @@ scanf("%i", &meseros);
 printf("\n\tIngrese '1' si quiere ingresar al menu ");
  	printf("\n\tIngrese '2' si quiere llenar las mesas con la cantidad\n\tde personas que va a tener disponible durante el turno:  ");
  	printf("\n\tIngrese '3' si quiere sacar cuenta de una mesa");
- 	printf("\n\tIngrese '4' si quiere salir");
+ 	printf("\n\tIngrese '4' si quiere salir: ");
  	scanf("%i",&var);
    return var;
   }
 
 void imrpimir_totalcta(int total){
-printf("\n\nEl total de las ventas del dia fue=\t%i",total);
+printf("\n\nEl total de las ventas del dia fue=\t%i mxn",total);
 }
 
  int main(){
@@ -219,7 +246,6 @@ printf("\n\nEl total de las ventas del dia fue=\t%i",total);
   
 
   totalmeseros = llenar_meseros();
- //printf("\n\n\n\t\t%i",totalmeseros);
 
 	imprecion_usuario(totalmeseros);
 	system("pause");
@@ -253,6 +279,7 @@ printf("\n\nEl total de las ventas del dia fue=\t%i",total);
 	 	 system("pause");
 		 system("cls");
 	 	ventas_del_dia = pedido(ventas_del_dia);
+
 		break;
 	 }
 	 case 4:
