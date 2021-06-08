@@ -69,15 +69,16 @@ for(int i=0;i < mesero;i++){
     
 	}
  }
-  void total(int th,int tb){
+  int total(int th,int tb){
 	int s;
 	 	s=th+tb;
-	printf("\n\tEl resultado total de la cuenta es de: %i\n\t",s);	
+	printf("\n\tEl resultado total de la cuenta es de: %i\n\t",s);
+  return s;	
 	 }
 	 
- void pedido(){
+ int pedido(int vtas){
 	int cant=0,s=0,d=0,c1=0,c2=0,rs=0,rd=0,rc=0,rcc=0,j=0,h,ii=0,th=0,tb=0; 
-	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp;
+	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp,total_cuenta;
  	//menu();
  	//hamburguesa
  	printf("\n\tIngrese la cantidad de articulos de hamburguesas: ");
@@ -171,8 +172,10 @@ for(int i=0;i < mesero;i++){
 
 	th=rs+rd+rc+rcc;
 	tb=tr+tc+tm+tp;	
-	total(th,tb);
-		
+
+  //total_cuenta = vtas;
+	 total_cuenta = (vtas + total(th,tb));
+		return total_cuenta;
 	  }
 	  
 
@@ -206,10 +209,13 @@ printf("\n\tIngrese '1' si quiere ingresar al menu ");
    return var;
   }
 
+void imrpimir_totalcta(int total){
+printf("\n\nEl total de las ventas del dia fue=\t%i",total);
+}
 
  int main(){
  	int me,var,m,z,opc,x,i,a[30] = {0};
- 	int totalmeseros;
+ 	int totalmeseros, ventas_del_dia=0;
   
 
   totalmeseros = llenar_meseros();
@@ -246,7 +252,7 @@ printf("\n\tIngrese '1' si quiere ingresar al menu ");
 	 	menu();
 	 	 system("pause");
 		 system("cls");
-	 	pedido();
+	 	ventas_del_dia = pedido(ventas_del_dia);
 		break;
 	 }
 	 case 4:
@@ -260,6 +266,7 @@ printf("\n\tIngrese '1' si quiere ingresar al menu ");
 	 while (var!=4);
   imprimir_mesas(me,a); 
 	imprecion_usuario(totalmeseros);
+  imrpimir_totalcta(ventas_del_dia);
 	 return 0;
 	//getch();
 	 }
