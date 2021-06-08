@@ -71,11 +71,11 @@ for(int i=0;i < mesero;i++){
   int total(int th,int tb){
 	int s;
 	 	s=th+tb;
-	printf("\n\tEl resultado total de la cuenta es de: %i\n\t",s);
+	//printf("\n\tEl resultado total de la cuenta es de: %i\n\t",s);
   return s;	
 	 }
 	 
- int pedido(int vtas){
+ void pedido(int datos){
 	int cant=0,s=0,d=0,c1=0,c2=0,rs=0,rd=0,rc=0,rcc=0,j=0,h,ii=0,th=0,tb=0; 
 	int zz=0,b=0,beb=0,r=0,tr=0,tc=0,c=0,m=0,tm=0,p,tp,total_cuenta,a=0;
  	//menu();
@@ -84,6 +84,7 @@ for(int i=0;i < mesero;i++){
  	scanf("%i",&h);
  		
 		 do{
+       printf("\n\t\t La cantidad de articulos a seleccionar es: %i",h);
  	printf("\n\tSeleccione 1 si quiere agregar una hamburguesa sencilla \n\tSeleccione 2 si quiere agregar una habmurguesa doble");
  	printf("\n\tSeleccione 3 si quiere agregar un combo sencillo \n\tSeleccione 4 si quiere agregar un combo doble");
 	scanf("%i",&cant);
@@ -134,6 +135,7 @@ for(int i=0;i < mesero;i++){
 	printf("\n\tIngrese la cantidad de articulos de bebidas y extras: ");
  	scanf("%i",&b);
  	do{
+     printf("\n\t\t La cantidad de articulos a seleccionar es: %i",h);
  	printf("\n\tIseleccione 1 si quiere agregar un refresco \n\t seleccione 2 si quiere agregar una cerveza");
  	printf("\n\tIseleccione 3 si quiere agregar una malteada\n\t seleccione 4 si quiere agregar papas: ");
 	scanf("%i",&beb);
@@ -197,11 +199,10 @@ for(int i=0;i < mesero;i++){
 
 	th=rs+rd+rc+rcc;
 	tb=tr+tc+tm+tp;	
-
+  //printf("%i",total_cuenta);
   //total_cuenta = vtas+total_cuenta;
-   a = total(th,tb);
-	 total_cuenta = (vtas + a);   
-		return total_cuenta;
+  datos=total( th, tb);
+    printf("El valor de la cuenta es de: %i",datos);
 	  }
 	  
 
@@ -241,7 +242,7 @@ printf("\n\nEl total de las ventas del dia fue=\t%i mxn",total);
 
  int main(){
  	int me,var,m,z,opc,x,i,a[30] = {0};
- 	int totalmeseros, ventas_del_dia=0;
+ 	int totalmeseros, datos=0;
   
 
   totalmeseros = llenar_meseros();
@@ -277,7 +278,7 @@ printf("\n\nEl total de las ventas del dia fue=\t%i mxn",total);
 	 	menu();
 	 	 system("pause");
 		 system("cls");
-	 	ventas_del_dia = pedido(ventas_del_dia);
+	 	pedido(datos);
 
 		break;
 	 }
@@ -292,7 +293,7 @@ printf("\n\nEl total de las ventas del dia fue=\t%i mxn",total);
 	 while (var!=4);
   imprimir_mesas(me,a); 
 	imprecion_usuario(totalmeseros);
-  imrpimir_totalcta(ventas_del_dia);
+  //imrpimir_totalcta(datos);
 	 return 0;
 	//getch();
 	 }
